@@ -1,0 +1,178 @@
+/* تنظیمات کلی برای body و html */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* محتویات صفحه */
+main {
+    flex: 1;
+    margin-top: 50px; /* ارتفاع هدر */
+    padding-right: 20px ;
+}
+
+/* فوتر همیشه در انتهای صفحه */
+/* طراحی کلی فوتر */
+footer {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 20px 50px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+/* بخش راست: اطلاعات تماس و آیکون‌های اجتماعی */
+.footer-right {
+    text-align: right;
+    flex: 1;
+}
+
+.footer-right p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.footer-right a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-right a:hover {
+    color: #007bff;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 5px;
+}
+
+/* بخش چپ: لینک‌ها */
+.footer-left {
+    text-align: left;
+    flex: 1;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-left li {
+    margin: 10px 0;
+}
+
+.footer-left a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-left a:hover {
+    color: #007bff;
+}
+
+/* کپی‌رایت در پایین و وسط چین */
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #f8f9fa; /* رنگ پس‌زمینه */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه */
+    position: fixed; /* اضافه شده برای ثابت نگه داشتن هدر */
+    top: 0; /* تنظیم فاصله از بالای صفحه */
+    width: 100%; /* عرض هدر */
+    z-index: 1000; /* قرار دادن هدر بالاتر از محتوای دیگر */
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.logo img {
+    height: 50px; /* ارتفاع لوگو */
+    width: auto;
+    margin-left: 30px;
+}
+
+.navbar {
+    display: flex;
+    gap: 30px; /* فاصله بین آیتم‌ها */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar li a:hover {
+    color: #007bff; /* رنگ لینک هنگام هاور */
+}
+
+.flashes {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+}
+.flashes .success {
+    color: green;
+    font-weight: bold;
+}
+.flashes .error {
+    color: red;
+    font-weight: bold;
+}
+.flash-messages {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+}
+
+.alert {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}

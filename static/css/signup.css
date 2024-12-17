@@ -1,0 +1,58 @@
+/* signup.css */
+.signup-container {
+    display: flex;
+    height: calc(100vh - 60px); /* کاهش ارتفاع هدر */
+    margin-top: 60px; /* فاصله از بالای صفحه برای هم‌تراز شدن با هدر */
+}
+
+.signup-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.signup-image {
+    flex: 1;
+    background-image: url("../images/signup.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.signup-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.signup-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-form button:hover {
+    background-color: #0056b3;
+}

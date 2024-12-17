@@ -1,0 +1,150 @@
+/* تنظیمات کلی برای body و html */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* محتویات صفحه */
+main {
+    flex: 1;
+}
+
+/* فوتر همیشه در انتهای صفحه */
+footer {
+    background-color: #f8f9fa; /* رنگ پس‌زمینه */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* سایه بالا */
+    color: #6c757d; /* رنگ متن */
+    font-size: 14px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #f8f9fa; /* رنگ پس‌زمینه */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* ارتفاع لوگو */
+    width: auto;
+}
+
+.navbar {
+    display: flex;
+    gap: 30px; /* فاصله بین آیتم‌ها */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar li a:hover {
+    color: #007bff; /* رنگ لینک هنگام هاور */
+}
+
+
+/* کانتینر اصلی */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    margin: 20px;
+}
+
+/* فرم ورود */
+.login-form {
+    width: 50%;
+    padding: 20px;
+    text-align: right;
+}
+
+.login-form h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-form p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-login {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.extra-links {
+    margin-top: 20px;
+}
+
+.extra-links a {
+    display: block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.extra-links .signup {
+    font-weight: bold;
+    color: red;
+}
+
+/* تصویر */
+.login-image {
+    width: 50%;
+    height: 100%;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+

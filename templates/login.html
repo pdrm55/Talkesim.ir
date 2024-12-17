@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<div class="login-container">
+    <div class="login-form">
+        <h1>ورود به حساب کاربری</h1>
+        <form method="POST" action="/login">
+            <label for="email">ایمیل:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">رمز عبور:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">ورود</button>
+        </form>
+        <p>رمز عبور را فراموش کرده‌اید؟</p>
+        <p>حساب کاربری ندارید؟ <a href="/signup" style="color: red;">ثبت نام</a></p>
+    </div>
+        <!-- سمت چپ تصویر -->
+        <div class="login-image">
+        </div>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{% endblock %}

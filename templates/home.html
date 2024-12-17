@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<div class="hero-section">
+    <div class="content">
+        <h1>متصل بمانید<br>هر کجا که هستید.</h1>
+        <p>
+            با استفاده از پلتفرم <strong>eSIM</strong> ما، می‌توانید در هر نقطه‌ای از جهان به اینترنت متصل شوید.
+            بدون نیاز به سیم‌کارت‌های فیزیکی، تجربه‌ای سریع و بدون وقفه خواهید داشت.
+        </p>
+        <div class="buttons">
+            <a href="{{ url_for('signup') }}" class="btn signup-btn">همین حالا شروع کنید</a>
+            <a href="{{ url_for('login') }}" class="btn login-btn">ورود</a>
+        </div>
+    </div>
+</div>
+
+<!-- بخش جملات و سرچ بار -->
+<div class="search-section">
+    <h2>بهترین پیشنهادهای eSIM را خریداری کنید</h2>
+    <h3>امروز با eSIM خود شروع کنید</h3>
+    <p>اتصال جهانی بی‌وقفه در انتظار شماست – eSIM خود را در چند ثانیه انتخاب کنید</p>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="کشور را جستجو کنید..." autocomplete="off">
+        <div id="search-dropdown" class="dropdown-menu"></div>
+
+    </div>
+    
+</div>
+
+<!-- بخش کشورها -->
+<div class="popular-countries">
+    <h2>پکیج‌های پرطرفدار</h2>
+    <br></br>
+    <div class="countries-container">
+        {% for country in countries %}
+        <div class="country-card">
+            <img src="{{ url_for('static', filename='images/Countries/' + country.image) }}" alt="{{ country.name }}">
+            <h3>{{ country.name }}</h3>
+            <p>{{ country.package }} - {{ country.validity }} Date {{ country.price }}€</p>
+            <a href="{{ url_for('packages', country_name=country.slug) }}" class="btn-view">مشاهده پکیج‌ها</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- دکمه مشاهده همه کشورها -->
+<div class="view-all-button">
+    <a href="{{ url_for('countries') }}" class="btn-view-all">مشاهده همه کشورها</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("search-input");
+        const dropdown = document.getElementById("search-dropdown");
+    
+        searchInput.addEventListener("input", function() {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                fetch(`/search_countries?q=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        dropdown.innerHTML = ""; // پاک کردن نتایج قبلی
+                        data.forEach(country => {
+                            const option = document.createElement("div");
+                            option.className = "dropdown-item";
+                            option.textContent = `${country.english} (${country.persian})`;
+                            option.addEventListener("click", () => {
+                                window.location.href = `/packages/${country.english.toLowerCase()}`;
+                            });
+                            dropdown.appendChild(option);
+                        });
+                        dropdown.style.display = "block";
+                    });
+            } else {
+                dropdown.style.display = "none";
+            }
+        });
+    
+        // بستن منوی جستجو در صورت کلیک بیرون
+        document.addEventListener("click", function(e) {
+            if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    });
+    </script>   
+{% endblock %}

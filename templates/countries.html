@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/countries.css">
+<br></br>
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="کشور را جستجو کنید..." autocomplete="off">
+    <div id="search-dropdown" class="dropdown-menu"></div>
+
+</div>
+
+<div class="packages-container">
+    {% for country in countries %}
+        <div class="country-card">
+            <h3>{{ country.name }}</h3>
+            <p>حجم دیتا: {{ country.data }}</p>
+            <p>زمان(روزها): {{ country.days }}</p>
+            <p class="price">قیمت: {{ country.price }}€</p>
+            <button class="view-packages-btn" onclick="window.location.href='/packages/{{ country.id }}'">
+                مشاهده پکیج‌ها
+            </button>
+        </div>
+    {% endfor %}
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("search-input");
+        const dropdown = document.getElementById("search-dropdown");
+    
+        searchInput.addEventListener("input", function() {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                fetch(`/search_countries?q=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        dropdown.innerHTML = ""; // پاک کردن نتایج قبلی
+                        data.forEach(country => {
+                            const option = document.createElement("div");
+                            option.className = "dropdown-item";
+                            option.textContent = `${country.english} (${country.persian})`;
+                            option.addEventListener("click", () => {
+                                window.location.href = `/packages/${country.english.toLowerCase()}`;
+                            });
+                            dropdown.appendChild(option);
+                        });
+                        dropdown.style.display = "block";
+                    });
+            } else {
+                dropdown.style.display = "none";
+            }
+        });
+    
+        // بستن منوی جستجو در صورت کلیک بیرون
+        document.addEventListener("click", function(e) {
+            if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    });
+    </script>  
+
+{% endblock %}

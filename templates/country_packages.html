@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages for {{ country_name }}</title>
+</head>
+<body>
+    <h1>Packages for {{ country_name }}</h1>
+
+    <form action="/add-to-cart" method="post">
+        <select name="package_id">
+            {% for package in packages %}
+            <option value="{{ package['prepaidpackagetemplateid'] }}">
+                {{ package['prepaidpackagetemplatename'] }} - 
+                {{ package['databyte'] // (1024 * 1024 * 1024) }} GB - 
+                {{ package['perioddays'] }} days - 
+                {{ package['cost'] }} $
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add to Cart</button>
+    </form>
+
+    <a href="/cart">Go to Cart</a>
+</body>
+</html>

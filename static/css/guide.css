@@ -1,0 +1,63 @@
+.guide-button {
+    width: 200px; /* عرض دکمه */
+    height: 60px; /* ارتفاع دکمه */
+    background-color: red; /* رنگ پس‌زمینه */
+    color: white; /* رنگ متن */
+    font-size: 18px; /* اندازه فونت */
+    border: none; /* حذف حاشیه */
+    border-radius: 5px; /* گوشه‌های گرد */
+    margin: 20px; /* فاصله بین دکمه‌ها */
+    cursor: pointer; /* نشانگر دست هنگام هاور */
+    text-align: center; /* متن وسط‌چین */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* اضافه کردن سایه */
+}
+
+.guide-button:hover {
+    background-color: darkred; /* رنگ پس‌زمینه هنگام هاور */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* سایه بیشتر هنگام هاور */
+}
+
+/* استایل برای وسط‌چین کردن دکمه‌ها */
+#guide-options {
+    display: flex;
+    justify-content: center; /* وسط‌چین کردن افقی */
+}
+
+
+.guide-content {
+    margin-top: 20px;
+    text-align: right;
+    text-align: right;
+}
+.guide-intro {
+    margin-top: 20px;
+    text-align: right;
+    text-align: right;
+}
+.guide-content h2 {
+    font-size: 1.5em;
+}
+
+.guide-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+#iphone-guide img {
+    max-width: 35%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+#android-guide img {
+    max-width: 35%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

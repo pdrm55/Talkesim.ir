@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/packages.css') }}">
+
+<div class="packages-container">
+
+
+    <!-- بخش اطلاعات پکیج‌ها -->
+    <div class="packages-list">
+        <h2>پکیج‌های {{ country_name }}</h2>
+        <form action="{{ url_for('add_to_cart_route') }}" method="post" class="package-item">
+            <!-- نمایش جزئیات پکیج انتخاب‌شده -->
+            <div class="package-details">
+                <h3>پکیج انتخاب‌شده</h3>
+                <p>حجم دیتا: <span id="data-size">---</span></p>
+                <p>زمان (روزها): <span id="validity">---</span></p>
+                <p class="price">قیمت: <span id="price">---</span> €</p>
+            </div>
+
+            <!-- منوی کشویی برای نمایش پکیج‌ها -->
+            <label for="package-select">پکیج خود را انتخاب کنید:</label>
+            <select id="package-select" name="package_id" onchange="updatePackageDetails()">
+                {% for package in packages %}
+                    <option value="{{ package.id }}"
+                            data-validity="{{ package.validity }}"
+                            data-price="{{ package.price }}">
+                        {{ package.name }} - {{ package.price }} €
+                    </option>
+                {% endfor %}
+            </select>
+
+            <!-- دکمه افزودن به سبد خرید -->
+            <button type="submit" class="btn-add-to-cart">افزودن به سبد خرید</button>
+        </form>
+    </div>
+        <!-- بخش تصویر -->
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/package.png') }}" alt="Package Image">
+        </div>
+</div>
+
+<!-- اسکریپت برای به‌روزرسانی جزئیات پکیج -->
+<script>
+    function updatePackageDetails() {
+        const select = document.getElementById("package-select");
+        const selectedOption = select.options[select.selectedIndex];
+
+        document.getElementById("validity").textContent = selectedOption.getAttribute("data-validity");
+        document.getElementById("price").textContent = selectedOption.getAttribute("data-price");
+        document.getElementById("data-size").textContent = selectedOption.text.split(' ')[1]; // استخراج حجم دیتا
+    }
+
+    // اجرای پیش‌فرض برای اولین پکیج
+    document.addEventListener("DOMContentLoaded", updatePackageDetails);
+</script>
+{% endblock %}

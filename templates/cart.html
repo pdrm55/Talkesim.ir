@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+
+<div class="cart-wrapper">
+
+    <div class="cart-container">
+        <h2>سبد خرید شما</h2>
+        {% if cart_items %}
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>نام پکیج</th>
+                    <th>تعداد</th>
+                    <th>قیمت واحد (€)</th>
+                    <th>قیمت کل (€)</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.price * item.quantity }}</td>
+                    <td>
+                        <form action="{{ url_for('remove_from_cart') }}" method="post">
+                            <input type="hidden" name="cart_id" value="{{ item.id }}">
+                            <button type="submit" class="btn-remove">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <h3>مجموع قیمت: €{{ total_price }}</h3>
+            <form action="{{ url_for('clear_cart') }}" method="post">
+                <button type="submit" class="btn-clear-cart">پاک کردن کل سبد خرید</button>
+            </form>
+        </div>
+        {% else %}
+        <p>سبد خرید شما خالی است.</p>
+        {% endif %}
+    </div>
+    <div class="cart-image">
+        <img src="/static/images/package.png" alt="Cart Image">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/guide.css">
+    <title>راهنما</title>
+</head>
+<body>
+   
+    <main>
+        <div id="guide-options">
+            <button id="android-button" class="guide-button" onclick="showGuide('android')">آموزش برای اندروید</button>
+            <button id="iphone-button" class="guide-button" onclick="showGuide('iphone')">آموزش برای آیفون</button>
+        </div>
+        <div id="guide-intro">
+            <h2>چگونه یک eSIM جدید نصب کنیم؟</h2>
+            <p>ابتدا مطمئن شوید که اتصال اینترنت دارید تا eSIM خود را تنظیم کنید.</p>
+        </div>
+        <div id="guide-content">
+            <h2 id="guide-title">لطفاً یکی از گزینه‌های بالا را انتخاب کنید.</h2>
+            <ul id="guide-steps"></ul>
+        </div>
+
+        <!-- راهنماها به صورت مخفی -->
+        <div id="android-guide" class="hidden">
+            <h2>مراحل نصب برای اندروید</h2>
+            <ul>
+                <li>وارد تنظیمات گوشی خود شوید.</li>
+                <li>به بخش «اتصالات» بروید.</li>
+                <li>روی «مدیریت eSIM» کلیک کنید.
+                    <img src="/static/images/android-step1.png" alt="تنظیمات اندروید">
+                </li>
+                <li>
+                    دانلود یک سیم را انتخاب کنید و به مرحله بعد بروید .
+                    <img src="/static/images/android-step2.png" alt="تنظیمات اندروید">
+                </li>
+                <li>کد QR ارائه شده را اسکن کنید. یا گزینه Need Help ? را انتخاب کرده و کد را بصورت دستی وارد کنید .
+                    <img src="/static/images/android-step3a.png" alt="تنظیمات اندروید">
+                </li>
+                <li>
+                    دکمه «ادامه» را فشار دهید.
+پس از دانلود، خط eSIM خود را در Talk تنظیم کنید.
+یک نام برای خط خود انتخاب کنید. می‌توانید گزینه «تجاری» را انتخاب کنید یا پروفایل خود را با یک برچسب سفارشی نام‌گذاری کرده و نام خود را برای خط وارد کنید.
+برای مثال: «Talk eSIM Trip».
+<img src="/static/images/android-step4.png" alt="تنظیمات اندروید">
+                </li>
+                <li>
+                    به‌صورت پیش‌فرض، خط «اپراتور موبایل شما» را انتخاب کنید. همین تنظیم را برای iMessage، FaceTime و Apple ID نیز اعمال کنید.
+برای داده‌های سلولی (Cellular Data)، اگر در خارج از کشور هستید، گزینه «Talk eSIM Trip» را انتخاب کنید.
+اجازه تغییر خودکار داده‌های موبایل را فعال نکنید.
+<img src="/static/images/android-step5.png" alt="تنظیمات اندروید">
+                </li>
+                <li style="font-weight: bold;">
+                    در صورت نیاز به راهنمایی بیشتر می‌توانید با 
+                    <a href="/support" style="color: red; text-decoration: none;">بخش پشتیبانی</a>
+                    تماس بگیرید.
+                </li>
+
+            </ul>
+        </div>
+        <div id="iphone-guide" class="hidden">
+            <h2>مراحل نصب برای آیفون</h2>
+            <ul>
+                <li>به تنظیمات گوشی بروید.</li>
+                <li>روی «شبکه همراه» کلیک کنید.</li>
+                <li>گزینه «افزودن eSIM» را انتخاب کنید.
+                    <img src="/static/images/iphone-step1.png" alt="تنظیمات آیفون">
+                </li>
+                <li>کد QR ارائه شده را اسکن کنید.
+                    <img src="/static/images/iphone-step2a.png" alt="تنظیمات آیفون">
+                </li>
+                <li>یا جرئیات را بصورت دستی وارد کنید (کد تایید را خالی بگذارید)
+                    <img src="/static/images/iphone-step2b.png" alt="تنظیمات آیفون">
+                </li>
+                <li>دکمه «ادامه» را فشار دهید.
+                    پس از دانلود، خط خود را در Talk eSIM  تنظیم کنید.
+                    یک نام برای خط خود انتخاب کنید. می‌توانید گزینه «تجاری» را انتخاب کنید یا پروفایل خود را با یک برچسب سفارشی نام‌گذاری کنید و نام خود را برای خط وارد کنید.
+            به عنوان مثال: «Talk eSIM Trip».
+                    <img src="/static/images/iphone-step3.png" alt="تنظیمات آیفون">
+                </li>
+                <li>
+                    به‌صورت پیش‌فرض، خط «اپراتور موبایل شما» را انتخاب کنید. همین تنظیم را برای iMessage، FaceTime و Apple ID نیز اعمال کنید.
+اما برای داده‌های سلولی (Cellular Data)، در صورتی که در خارج از کشور هستید، گزینه «Talk eSIM Trip» را انتخاب کنید.
+اجازه تغییر خودکار داده‌های موبایل را فعال نکنید.
+                <img src="/static/images/iphone-step4.png" alt="تنظیمات آیفون">
+                <li>
+                    به تنظیمات (Settings) بروید و گزینه «Cellular / Mobile Data» را انتخاب کنید.
+خط «Talk eSIM Trip» را انتخاب کنید.
+گزینه «Data Roaming» را برای خط «Talk eSIM Trip» فعال کنید.
+                <img src="/static/images/iphone-step5.png" alt="تنظیمات آیفون">
+                </li>
+                <li style="font-weight: bold;">
+                    در صورت نیاز به راهنمایی بیشتر می‌توانید با 
+                    <a href="/support" style="color: red; text-decoration: none;">بخش پشتیبانی</a>
+                    تماس بگیرید.
+                </li>
+                
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        function showGuide(device) {
+            const androidGuide = document.getElementById('android-guide');
+            const iphoneGuide = document.getElementById('iphone-guide');
+            
+            if (device === 'android') {
+                androidGuide.classList.remove('hidden');
+                androidGuide.classList.add('visible');
+                iphoneGuide.classList.remove('visible');
+                iphoneGuide.classList.add('hidden');
+            } else if (device === 'iphone') {
+                iphoneGuide.classList.remove('hidden');
+                iphoneGuide.classList.add('visible');
+                androidGuide.classList.remove('visible');
+                androidGuide.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('android-button').addEventListener('click', () => showGuide('android'));
+        document.getElementById('iphone-button').addEventListener('click', () => showGuide('iphone'));
+    </script>
+</body>
+</html>
+
+{% endblock %}
