@@ -7,6 +7,12 @@ html, body {
     flex-direction: column;
 }
 
+/* ریسپانسیو برای تبلت (عرض کمتر از 768 پیکسل) */
+@media (max-width: 768px) {
+    header, footer {
+        text-align: center;
+    }
+}
 /* محتویات صفحه */
 main {
     flex: 1;
