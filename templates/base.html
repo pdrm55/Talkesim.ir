@@ -25,7 +25,7 @@
             <li><span>سلام، {{ session.get('user_name') }}</span></li>
             <li><a href="/logout">خروج</a></li>
         {% else %}
-            <li><a href="/login">ورود</a></li>
+        <li><a href="/login" class="login-button">ورود</a></li>
         {% endif %}
             </ul>
         </nav>
@@ -65,13 +65,17 @@
         }, 3000);
     }
 </script>
+<!-- واتساپ در گوشه پایین سمت راست -->
+<a href="https://wa.me/905432138243" target="_blank" class="whatsapp-float">
+    <img src="/static/images/icons/whatsapp.png" alt="WhatsApp Support" />
+</a>
 
 
 <footer>
     <div class="footer-container">
         <!-- بخش راست: اطلاعات تماس و آیکون‌های اجتماعی -->
         <div class="footer-right">
-            <p><strong>تماس با ما:</strong> <a href="tel:+123456789">+90 (543) 213 8243</a></p>
+            <p><strong>تماس با ما:</strong> <a href="tel:905432138243">905432138243+</a></p>
             <p><strong>ایمیل:</strong> <a href="mailto:support@example.com">talkesim.ir@gmail.com</a></p>
             <div class="social-icons">
                 <a href="#"><img src="static/images/icons/instagram.png" alt="Instagram"></a>

@@ -1,5 +1,23 @@
+/* تعریف فونت IRANSans */
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/static/fonts/IRANSans/IRANSans.woff2') format('woff2'),
+         url('/static/fonts/IRANSans/IRANSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/static/fonts/IRANSans/IRANSans-Bold.woff2') format('woff2'),
+         url('/static/fonts/IRANSans/IRANSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /* تنظیمات کلی برای body و html */
 html, body {
+    font-family: 'IRANSans', Arial, sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -102,7 +120,7 @@ footer {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* وسط‌چین کردن عمودی */
     padding: 10px 30px;
     background-color: #f8f9fa; /* رنگ پس‌زمینه */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه */
@@ -127,10 +145,11 @@ header {
 
 .navbar {
     display: flex;
-    gap: 30px; /* فاصله بین آیتم‌ها */
+    gap: 50px; /* فاصله بین آیتم‌ها */
     list-style: none;
-    padding: 0;
+    padding: 30;
     margin: 0;
+    align-items: center; /* وسط‌چین کردن عمودی */
 }
 
 .navbar li a {
@@ -143,6 +162,25 @@ header {
 .navbar li a:hover {
     color: #007bff; /* رنگ لینک هنگام هاور */
 }
+
+
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #555; /* بوردر خاکستری تیره */
+    color: #555; /* متن خاکستری تیره */
+    background-color: white; /* پس‌زمینه سفید */
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px; /* گوشه‌های گرد */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #555; /* پس‌زمینه خاکستری تیره هنگام هاور */
+    color: white; /* متن سفید هنگام هاور */
+}
+
 
 .flashes {
     list-style: none;
@@ -181,4 +219,23 @@ header {
 .alert.danger {
     background-color: #f8d7da;
     color: #721c24;
+}
+/* استایل دکمه شناور واتساپ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px; /* فاصله از پایین صفحه */
+    right: 20px; /* فاصله از سمت راست */
+    z-index: 1000; /* بالاتر از سایر محتواها */
+}
+
+.whatsapp-float img {
+    width: 60px; /* عرض آیکون */
+    height: 60px; /* ارتفاع آیکون */
+    border-radius: 50%; /* دایره‌ای کردن لوگو */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* سایه برای زیبایی */
+    transition: transform 0.3s ease; /* انیمیشن برای بزرگنمایی */
+}
+
+.whatsapp-float img:hover {
+    transform: scale(1.1); /* بزرگنمایی هنگام هاور */
 }
