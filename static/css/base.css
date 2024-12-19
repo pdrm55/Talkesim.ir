@@ -253,7 +253,7 @@ header {
     .navbar {
         display: none;
         flex-direction: column;
-        align-items: flex-start /* راست‌چین کردن آیتم‌ها */
+        align-items: flex-end; /* راست‌چین کردن آیتم‌ها */
         width: 100%;
         text-align: right; /* راست‌چین کردن متن آیتم‌ها */
         background-color: #f8f9fa;
