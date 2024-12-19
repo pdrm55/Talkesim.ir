@@ -38,8 +38,8 @@
 .view-packages-btn:hover {
     background-color: darkred;
 }
-/* استایل بخش جستجو */
 
+/* استایل بخش جستجو */
 .search-container {
     position: relative;
     width: 50%;
@@ -79,3 +79,32 @@
     background-color: #f1f1f1;
 }
 
+/* Media Queries برای ریسپانسیو کردن */
+@media (max-width: 1024px) {
+    .packages-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-container {
+        grid-template-columns: 1fr;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .country-card {
+        padding: 10px;
+    }
+
+    .view-packages-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}

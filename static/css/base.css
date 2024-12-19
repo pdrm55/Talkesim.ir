@@ -30,11 +30,25 @@ html, body {
     header, footer {
         text-align: center;
     }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar li {
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
 }
+
 /* محتویات صفحه */
 main {
     flex: 1;
-    margin-top: 50px; /* ارتفاع هدر */
+    margin-top: 50px;
     padding-right: 20px ;
 }
 
@@ -116,20 +130,18 @@ footer {
     color: #666;
 }
 
-
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* وسط‌چین کردن عمودی */
+    align-items: center;
     padding: 10px 30px;
-    background-color: #f8f9fa; /* رنگ پس‌زمینه */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه */
-    position: fixed; /* اضافه شده برای ثابت نگه داشتن هدر */
-    top: 0; /* تنظیم فاصله از بالای صفحه */
-    width: 100%; /* عرض هدر */
-    z-index: 1000; /* قرار دادن هدر بالاتر از محتوای دیگر */
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
-
 
 .logo {
     display: flex;
@@ -138,18 +150,18 @@ header {
 }
 
 .logo img {
-    height: 50px; /* ارتفاع لوگو */
+    height: 50px;
     width: auto;
     margin-left: 30px;
 }
 
 .navbar {
     display: flex;
-    gap: 50px; /* فاصله بین آیتم‌ها */
+    gap: 50px;
     list-style: none;
     padding: 30;
     margin: 0;
-    align-items: center; /* وسط‌چین کردن عمودی */
+    align-items: center;
 }
 
 .navbar li a {
@@ -160,41 +172,42 @@ header {
 }
 
 .navbar li a:hover {
-    color: #007bff; /* رنگ لینک هنگام هاور */
+    color: #007bff;
 }
-
 
 .login-button {
     display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #555; /* بوردر خاکستری تیره */
-    color: #555; /* متن خاکستری تیره */
-    background-color: white; /* پس‌زمینه سفید */
+    padding: 5px 20px;
+    border: 2px solid #555;
+    color: #555;
+    background-color: white;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 5px; /* گوشه‌های گرد */
+    border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .login-button:hover {
-    background-color: #555; /* پس‌زمینه خاکستری تیره هنگام هاور */
-    color: white; /* متن سفید هنگام هاور */
+    background-color: #555;
+    color: white;
 }
-
 
 .flashes {
     list-style: none;
     padding: 10px;
     margin: 10px 0;
 }
+
 .flashes .success {
     color: green;
     font-weight: bold;
 }
+
 .flashes .error {
     color: red;
     font-weight: bold;
 }
+
 .flash-messages {
     position: fixed;
     top: 50%;
@@ -220,22 +233,23 @@ header {
     background-color: #f8d7da;
     color: #721c24;
 }
+
 /* استایل دکمه شناور واتساپ */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px; /* فاصله از پایین صفحه */
-    right: 20px; /* فاصله از سمت راست */
-    z-index: 1000; /* بالاتر از سایر محتواها */
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .whatsapp-float img {
-    width: 60px; /* عرض آیکون */
-    height: 60px; /* ارتفاع آیکون */
-    border-radius: 50%; /* دایره‌ای کردن لوگو */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* سایه برای زیبایی */
-    transition: transform 0.3s ease; /* انیمیشن برای بزرگنمایی */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .whatsapp-float img:hover {
-    transform: scale(1.1); /* بزرگنمایی هنگام هاور */
+    transform: scale(1.1);
 }

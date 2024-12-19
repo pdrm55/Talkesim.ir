@@ -23,17 +23,16 @@
     justify-content: center; /* وسط‌چین کردن افقی */
 }
 
-
 .guide-content {
     margin-top: 20px;
     text-align: right;
-    text-align: right;
 }
+
 .guide-intro {
     margin-top: 20px;
     text-align: right;
-    text-align: right;
 }
+
 .guide-content h2 {
     font-size: 1.5em;
 }
@@ -42,22 +41,55 @@
     list-style-type: none;
     padding: 0;
 }
-#iphone-guide img {
+
+#iphone-guide img, #android-guide img {
     max-width: 35%;
     height: auto;
     margin: 10px auto;
     display: block;
 }
-#android-guide img {
-    max-width: 35%;
-    height: auto;
-    margin: 10px auto;
-    display: block;
-}
+
 .hidden {
     display: none;
 }
 
 .visible {
     display: block;
+}
+
+/* Media Queries برای ریسپانسیو کردن */
+@media (max-width: 1024px) {
+    .guide-button {
+        width: 180px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #guide-options {
+        flex-direction: column;
+    }
+
+    .guide-content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-button {
+        width: 150px;
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .guide-content h2 {
+        font-size: 1.3em;
+    }
+
+    .guide-content ul {
+        padding: 5px;
+    }
+
+    #iphone-guide img, #android-guide img {
+        max-width: 50%;
+    }
 }

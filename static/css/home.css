@@ -7,13 +7,12 @@
 
 .hero-section .content {
     position: absolute;
-    top: 25%; /* شروع بعد از یک چهارم صفحه */
-    right: 15%; /* فاصله از سمت راست */
-    text-align: right; /* راست‌چین کردن نوشته‌ها */
-    color: #000; /* مشکی کردن نوشته‌ها */
-    max-width: 35%; /* عرض نوشته‌ها به حداکثر 45% صفحه محدود می‌شود */
+    top: 25%;
+    right: 15%;
+    text-align: right;
+    color: #000;
+    max-width: 35%;
 }
-
 
 .hero-section .content h1 {
     font-size: 2.5rem;
@@ -59,7 +58,6 @@
     background-color: #333;
     color: #fff;
 }
-
 
 /* بخش جملات و سرچ بار */
 .search-section {
@@ -124,7 +122,6 @@
     background-color: #f1f1f1;
 }
 
-
 .popular-countries {
     margin: 30px auto;
     text-align: center;
@@ -138,7 +135,7 @@
 
 .countries-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 ستون */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-items: center;
 }
@@ -189,20 +186,19 @@
 
 .country-card:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-
 }
 
 .view-all-button {
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 100px; /* فاصله از فوتر */
+    margin-bottom: 100px;
 }
 
 .btn-view-all {
     display: inline-block;
     background-color: #ff3333;
     color: white;
-    padding: 12px 40px; /* طول دکمه را دو برابر می‌کند */
+    padding: 12px 40px;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 5px;
@@ -213,4 +209,34 @@
 .btn-view-all:hover {
     background-color: #cc0000;
     color: #fff;
+}
+
+/* Media Queries برای ریسپانسیو کردن */
+@media (max-width: 1024px) {
+    .hero-section .content {
+        top: 20%;
+        right: 10%;
+        max-width: 50%;
+    }
+
+    .countries-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section .content {
+        top: 15%;
+        right: 5%;
+        max-width: 70%;
+    }
+
+    .countries-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .search-container {
+        width: 80%;
+    }
 }
