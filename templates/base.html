@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Talkesim Platform</title>
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}">
-        <!-- لینک CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talkesim Platform</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- لینک CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
 <body>
     <header>
 
         <nav>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776; <!-- آیکون همبرگری -->
+            </div>
             <ul class="navbar">
                 <li><a href="/">خانه</a></li>
                 <li><a href="/countries">بسته‌ها</a></li>
@@ -22,11 +24,11 @@
                 <li><a href="/contact">ارتباط با ما</a></li>
                 <li><a href="/cart"> سبد خرید</a></li>
                 {% if session.get('user_id') %}
-            <li><span>سلام، {{ session.get('user_name') }}</span></li>
-            <li><a href="/logout">خروج</a></li>
-        {% else %}
-        <li><a href="/login" class="login-button">ورود</a></li>
-        {% endif %}
+                    <li><span>سلام، {{ session.get('user_name') }}</span></li>
+                    <li><a href="/logout">خروج</a></li>
+                {% else %}
+                    <li><a href="/login" class="login-button">ورود</a></li>
+                {% endif %}
             </ul>
         </nav>
         <div class="logo">
@@ -37,70 +39,72 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-    
-<div class="flash-messages">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="messages">
-                {% for category, message in messages %}
-                    <div class="alert {{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="messages">
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <script>
+        const flashMessage = document.querySelector('.alert.success');
+        if (flashMessage) {
+            setTimeout(() => {
+                // حذف پیام موفقیت
+                flashMessage.remove();
+
+                // تغییر مسیر تنها اگر در صفحه "countries" نیستید
+                if (!window.location.href.includes("/countries")) {
+                    window.location.href = "/countries";
+                }
+            }, 3000);
+        }
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+    <!-- واتساپ در گوشه پایین سمت راست -->
+    <a href="https://wa.me/905432138243" target="_blank" class="whatsapp-float">
+        <img src="/static/images/icons/whatsapp.png" alt="WhatsApp Support" />
+    </a>
+
+    <footer>
+        <div class="footer-container">
+            <!-- بخش راست: اطلاعات تماس و آیکون‌های اجتماعی -->
+            <div class="footer-right">
+                <p><strong>تماس با ما:</strong> <a href="tel:905432138243">905432138243+</a></p>
+                <p><strong>ایمیل:</strong> <a href="mailto:support@example.com">talkesim.ir@gmail.com</a></p>
+                <div class="social-icons">
+                    <a href="#"><img src="static/images/icons/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="static/images/icons/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="static/images/icons/whatsapp.png" alt="WhatsApp"></a>
+                </div>
             </div>
-        {% endif %}
-    {% endwith %}
-</div>
-<script>
-    const flashMessage = document.querySelector('.alert.success');
-    if (flashMessage) {
-        setTimeout(() => {
-            // حذف پیام موفقیت
-            flashMessage.remove();
 
-            // تغییر مسیر تنها اگر در صفحه "countries" نیستید
-            if (!window.location.href.includes("/countries")) {
-                window.location.href = "/countries";
-            }
-        }, 3000);
-    }
-</script>
-<!-- واتساپ در گوشه پایین سمت راست -->
-<a href="https://wa.me/905432138243" target="_blank" class="whatsapp-float">
-    <img src="/static/images/icons/whatsapp.png" alt="WhatsApp Support" />
-</a>
-
-
-<footer>
-    <div class="footer-container">
-        <!-- بخش راست: اطلاعات تماس و آیکون‌های اجتماعی -->
-        <div class="footer-right">
-            <p><strong>تماس با ما:</strong> <a href="tel:905432138243">905432138243+</a></p>
-            <p><strong>ایمیل:</strong> <a href="mailto:support@example.com">talkesim.ir@gmail.com</a></p>
-            <div class="social-icons">
-                <a href="#"><img src="static/images/icons/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="static/images/icons/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="static/images/icons/whatsapp.png" alt="WhatsApp"></a>
+            <!-- بخش چپ: لینک‌ها -->
+            <div class="footer-left">
+                <ul>
+                    <li><a href="/about">درباره ما</a></li>
+                    <li><a href="/contact">تماس با ما</a></li>
+                    <li><a href="/privacy">سیاست حریم خصوصی</a></li>
+                    <li><a href="/faq">پرسش‌های متداول</a></li>
+                </ul>
             </div>
         </div>
 
-        <!-- بخش چپ: لینک‌ها -->
-        <div class="footer-left">
-            <ul>
-                <li><a href="/about">درباره ما</a></li>
-                <li><a href="/contact">تماس با ما</a></li>
-                <li><a href="/privacy">سیاست حریم خصوصی</a></li>
-                <li><a href="/faq">پرسش‌های متداول</a></li>
-            </ul>
+        <!-- بخش پایین: کپی‌رایت -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 تمامی حقوق محفوظ است.</p>
         </div>
-    </div>
-
-    <!-- بخش پایین: کپی‌رایت -->
-    <div class="footer-bottom">
-        <p>&copy; 2024 تمامی حقوق محفوظ است.</p>
-    </div>
-</footer>
-
-
+    </footer>
 </body>
-
+</html>
