@@ -253,14 +253,16 @@ header {
     .navbar {
         display: none;
         flex-direction: column;
-        align-items: flex-end; /* راست‌چین کردن آیتم‌ها */
-        width: 100%;
-        text-align: right; /* راست‌چین کردن متن آیتم‌ها */
-        background-color: #f8f9fa;
+        align-items: flex-start; /* اطمینان از اینکه منو در داخل صفحه باقی بماند */
+        width: 100%; /* منو تمام عرض صفحه را بگیرد */
+        text-align: right; /* آیتم‌ها راست‌چین شوند */
+        background-color: #f8f9fa; /* رنگ پس‌زمینه */
         position: absolute;
         top: 60px;
         left: 0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* سایه برای تمایز منو */
+        overflow-y: auto; /* اسکرول در صورت وجود آیتم‌های زیاد */
+        max-height: 80vh; /* ارتفاع منو بیشتر از ۸۰٪ صفحه نباشد */
     }
 
     .navbar.active {
@@ -268,7 +270,7 @@ header {
     }
 
     .navbar li {
-        margin: 5px 10px; /* کاهش فاصله بین آیتم‌ها و اضافه کردن فاصله از راست */
+        margin: 0px 15px; /* فاصله بین آیتم‌ها */
     }
 
     .menu-icon {
